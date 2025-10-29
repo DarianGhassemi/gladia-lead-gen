@@ -1,30 +1,42 @@
 {
-  "name": "gladia-lead-gen",
+  "name": "gladia-lead-gen-monorepo",
   "version": "1.0.0",
+  "private": true,
   "type": "module",
-  "description": "Lead generation and email writing system for Gladia using Exa Websets and Claude",
-  "main": "gladia-lead-gen.js",
+  "description": "Monorepo for Gladia lead generation and email system",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "start": "node gladia-lead-gen.js",
-    "cold": "EMAIL_TYPE=cold_outreach node gladia-lead-gen.js",
-    "followup": "EMAIL_TYPE=follow_up node gladia-lead-gen.js",
-    "value": "EMAIL_TYPE=value_add node gladia-lead-gen.js",
-    "regen": "node regenerate-emails.js",
-    "regen:cold": "EMAIL_TYPE=cold_outreach node regenerate-emails.js",
-    "regen:followup": "EMAIL_TYPE=follow_up node regenerate-emails.js",
-    "regen:value": "EMAIL_TYPE=value_add node regenerate-emails.js",
-    "server": "node server.js",
-    "frontend": "cd frontend && npm run dev",
-    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
-    "kill": "pkill -f 'node server.js' || true && pkill -f 'vite' || true"
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:web\"",
+    "dev:web": "npm run dev --workspace=@gladia-lead-gen/web",
+    "dev:api": "npm run dev --workspace=@gladia-lead-gen/api",
+    "build": "npm run build --workspaces",
+    "build:web": "npm run build --workspace=@gladia-lead-gen/web",
+    "start:api": "npm run start --workspace=@gladia-lead-gen/api",
+    "generate": "npm run generate --workspace=@gladia-lead-gen/api",
+    "generate:cold": "npm run generate:cold --workspace=@gladia-lead-gen/api",
+    "generate:followup": "npm run generate:followup --workspace=@gladia-lead-gen/api",
+    "generate:value": "npm run generate:value --workspace=@gladia-lead-gen/api",
+    "clean": "rm -rf node_modules apps/*/node_modules packages/*/node_modules",
+    "clean:builds": "rm -rf apps/*/dist packages/*/dist"
   },
-  "dependencies": {
-    "@anthropic-ai/sdk": "^0.32.1",
-    "concurrently": "^9.1.2",
-    "cors": "^2.8.5",
-    "csv-writer": "^1.6.0",
-    "dotenv": "^17.2.3",
-    "exa-js": "^1.0.11",
-    "express": "^5.1.0"
-  }
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "keywords": [
+    "lead-generation",
+    "email",
+    "ai",
+    "claude",
+    "exa",
+    "monorepo"
+  ],
+  "author": "Darian Ghassemi",
+  "license": "MIT"
 }

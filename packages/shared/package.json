@@ -1,0 +1,12 @@
+{
+  "name": "@gladia-lead-gen/shared",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Shared utilities and types for Gladia lead generation",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./types": "./src/types.js",
+    "./config": "./src/config.js"
+  }
+}

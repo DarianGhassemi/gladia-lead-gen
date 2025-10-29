@@ -1,0 +1,27 @@
+{
+  "name": "@gladia-lead-gen/api",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "API server for Gladia lead generation",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "generate": "node gladia-lead-gen.js",
+    "generate:cold": "EMAIL_TYPE=cold_outreach node gladia-lead-gen.js",
+    "generate:followup": "EMAIL_TYPE=follow_up node gladia-lead-gen.js",
+    "generate:value": "EMAIL_TYPE=value_add node gladia-lead-gen.js",
+    "regen": "node regenerate-emails.js",
+    "regen:cold": "EMAIL_TYPE=cold_outreach node regenerate-emails.js",
+    "regen:followup": "EMAIL_TYPE=follow_up node regenerate-emails.js",
+    "regen:value": "EMAIL_TYPE=value_add node regenerate-emails.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1",
+    "cors": "^2.8.5",
+    "csv-writer": "^1.6.0",
+    "dotenv": "^17.2.3",
+    "exa-js": "^1.0.11",
+    "express": "^5.1.0"
+  }
+}

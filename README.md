@@ -1,250 +1,309 @@
-# Gladia Lead Generation & Email System 🚀
+# Gladia Lead Generation System
 
-A complete lead generation and personalized email writing system using Exa Websets API and Claude AI with **customizable search profiles**.
+> AI-powered lead generation and personalized email creation using Exa search and Claude AI
 
-## 🎯 Key Feature: Customizable Search Profiles
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
+[![React](https://img.shields.io/badge/React-18+-blue.svg)](https://reactjs.org/)
 
-This system includes **8 pre-built search profiles** targeting different market segments, plus the ability to create your own custom profiles. Simply change the `activeProfile` in [search-config.json](search-config.json) to target different audiences.
+## 🎯 Overview
 
-### Available Profiles:
-1. **default** - AI Engineers & CTOs (Voice/Speech Focus)
-2. **meeting-tools** - Meeting & Collaboration Tool Builders
-3. **customer-support** - Customer Support AI Builders
-4. **sales-coaching** - Sales Intelligence & Coaching Tools
-5. **healthcare-tech** - Healthcare & Medical Documentation
-6. **media-podcasting** - Media, Podcasting & Content Platforms
-7. **legal-compliance** - Legal Tech & Compliance Recording
-8. **education-tech** - Education & E-Learning Platforms
+The Gladia Lead Generation System is a comprehensive monorepo application that automates lead discovery and personalized email generation. It combines powerful AI models with an intuitive web interface to streamline your outreach process.
 
----
+### Key Features
 
-## ⚡ Quick Start (5 Minutes)
+- 🔍 **Intelligent Lead Discovery** - Powered by Exa's web search API
+- ✉️ **AI-Generated Emails** - Personalized outreach using Claude AI
+- 🎨 **Modern Web Interface** - React + Vite + TailwindCSS
+- 📊 **Multiple Email Types** - Cold outreach, follow-ups, and value-add emails
+- 🏗️ **Monorepo Architecture** - Scalable and maintainable structure
+- 🚀 **Easy Deployment** - Vercel-ready frontend, flexible backend hosting
 
-### 1. Install Dependencies
-```bash
-npm install
-```
+## 📁 Project Structure
 
-### 2. Set Up API Keys
-
-Copy the example environment file:
-```bash
-cp .env.example .env
-```
-
-Edit `.env` and add your keys:
-```bash
-EXA_API_KEY=your-exa-key-here
-ANTHROPIC_API_KEY=your-anthropic-key-here
-```
-
-Get your API keys:
-- **Exa API**: https://exa.ai
-- **Anthropic API**: https://console.anthropic.com
-
-### 3. Choose Your Search Profile
-
-Edit [search-config.json](search-config.json):
-```json
-{
-  "activeProfile": "meeting-tools"  // Change this to any profile name
-}
-```
-
-### 4. Run the System
-
-```bash
-npm start
-```
-
-This will:
-✅ Use your selected search profile
-✅ Find 50 qualified leads
-✅ Enrich with contact info
-✅ Generate personalized emails
-✅ Save to `./leads/` folder
-
----
-
-## 📊 Output Files
-
-After running, check these files:
-
-- **`./leads/leads.json`** - Raw lead data with all enrichments
-- **`./leads/leads.csv`** - Spreadsheet format (import to CRM)
-- **`./leads/emails.json`** - Generated personalized emails
-
----
-
-## 🎨 Email Types
-
-Generate different email styles:
-
-```bash
-npm run cold           # Cold outreach (150-200 words)
-npm run followup       # Follow-up emails (75-100 words)
-npm run value          # Value-add emails, no ask (100-150 words)
-```
-
----
-
-## 🔧 Customizing Search Profiles
-
-### Switch to a Different Profile
-
-Edit [search-config.json](search-config.json):
-```json
-{
-  "activeProfile": "healthcare-tech"  // Target healthcare companies
-}
-```
-
-### Create Your Own Profile
-
-See [SEARCH_CONFIG_GUIDE.md](SEARCH_CONFIG_GUIDE.md) for detailed instructions.
-
-Quick example - add a new profile to `search-config.json`:
-
-```json
-{
-  "activeProfile": "your-custom-profile",
-  "profiles": {
-    "your-custom-profile": {
-      "name": "Your Target Market",
-      "description": "Description of who you're targeting",
-      "leadCount": 50,
-      "search": {
-        "query": "Natural language description of your ideal leads",
-        "criteria": [
-          "role: specific job titles or roles",
-          "works on: specific technologies or products",
-          "company size: employee range",
-          "needs: pain points they likely have"
-        ],
-        "enrichments": ["linkedin", "email", "twitter", "company", "github"]
-      }
-    }
-  }
-}
-```
-
-### Adjust Number of Leads
-
-In [search-config.json](search-config.json), change `leadCount`:
-```json
-{
-  "profiles": {
-    "default": {
-      "leadCount": 100,  // Increase from 50 to 100
-      ...
-    }
-  }
-}
-```
-
----
-
-## 📚 Documentation
-
-- **[SEARCH_CONFIG_GUIDE.md](SEARCH_CONFIG_GUIDE.md)** - Complete guide to customizing search criteria
-- **[search-config.json](search-config.json)** - Your search profile configuration
-
----
-
-## 🚀 Available Commands
-
-### Generate New Leads + Emails
-```bash
-npm start              # Use active profile, cold outreach
-npm run cold           # Cold outreach emails
-npm run followup       # Follow-up emails
-npm run value          # Value-add emails
-```
-
-### Regenerate Emails (Use Existing Leads)
-```bash
-npm run regen          # Regenerate with default type
-npm run regen:cold     # New cold emails
-npm run regen:followup # New follow-ups
-npm run regen:value    # New value-add emails
-```
-
----
-
-## 💡 Tips for Best Results
-
-1. **Start Small**: Set `leadCount: 10` to test profile quality
-2. **Review Output**: Check `leads.csv` and sample emails
-3. **Iterate**: Adjust criteria in [search-config.json](search-config.json) based on results
-4. **Switch Profiles**: Try different profiles for different campaigns
-5. **Customize**: Create your own profiles for your specific ICP
-
----
-
-## 🆘 Troubleshooting
-
-**"No leads found"**
-- Increase `leadCount` in your profile (try 100-200)
-- Broaden your search criteria
-- Check if your Exa API key is valid
-
-**"Wrong types of leads"**
-- Make criteria more specific in [search-config.json](search-config.json)
-- See [SEARCH_CONFIG_GUIDE.md](SEARCH_CONFIG_GUIDE.md) for tips
-
-**"API key error"**
-```bash
-# Verify environment variables are set
-cat .env
-```
-
----
-
-## 🎯 Example Workflow
-
-```bash
-# 1. Target meeting tool builders
-# Edit search-config.json: "activeProfile": "meeting-tools"
-npm start
-
-# 2. Review results
-open leads/leads.csv
-
-# 3. Try healthcare market
-# Edit search-config.json: "activeProfile": "healthcare-tech"
-npm start
-
-# 4. Regenerate with different email style
-npm run regen:followup
-```
-
----
-
-## 📖 Learn More
-
-- Read [SEARCH_CONFIG_GUIDE.md](SEARCH_CONFIG_GUIDE.md) for in-depth customization
-- Check [search-config.json](search-config.json) to see all 8 pre-built profiles
-- Each profile is production-ready and targets a specific market segment
-
----
-
-## 📦 What's Included
+This is a **monorepo** managed with **npm workspaces**:
 
 ```
 gladia-lead-gen/
-├── gladia-lead-gen.js           # Main script
-├── regenerate-emails.js         # Regenerate emails
-├── search-config.json           # 8 pre-built search profiles
-├── SEARCH_CONFIG_GUIDE.md       # Customization guide
-├── package.json                 # Dependencies & scripts
-├── .env.example                 # Environment template
-└── README.md                    # This file
+├── apps/
+│   ├── web/                    # React frontend (Vite + TailwindCSS)
+│   └── api/                    # Node.js backend (Express)
+├── packages/
+│   └── shared/                 # Shared utilities and types
+├── docs/                       # Comprehensive documentation
+│   ├── guides/                 # User guides
+│   └── architecture/           # Technical documentation
+└── .claude/                    # AI assistant guidelines
 ```
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Node.js 18+ and npm 9+
+- API keys:
+  - [Anthropic Claude API](https://console.anthropic.com/)
+  - [Exa API](https://exa.ai/)
+
+### Installation
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/DarianGhassemi/gladia-lead-gen.git
+cd gladia-lead-gen
+
+# 2. Install dependencies (for all workspaces)
+npm install
+
+# 3. Set up environment variables
+cp docs/guides/.env.example .env
+# Edit .env and add your API keys:
+# ANTHROPIC_API_KEY=your_key_here
+# EXA_API_KEY=your_key_here
+
+# 4. Start development servers
+npm run dev
+```
+
+The application will be available at:
+- **Frontend**: http://localhost:5173
+- **Backend**: http://localhost:3001
+
+## 📚 Documentation
+
+Comprehensive documentation is available in the [`docs/`](./docs) directory:
+
+### Getting Started
+- [📖 Quick Start Guide](./docs/guides/QUICKSTART.md)
+- [✅ Setup Checklist](./docs/guides/SETUP_CHECKLIST.md)
+- [🎓 Start Here](./docs/guides/START_HERE.md)
+
+### User Guides
+- [🔍 Search Configuration](./docs/guides/SEARCH_CONFIG_GUIDE.md)
+- [👤 Profiles Overview](./docs/guides/PROFILES_OVERVIEW.md)
+- [🌐 Web App Guide](./docs/guides/WEB_APP_README.md)
+
+### Technical Documentation
+- [🏗️ System Architecture](./docs/architecture/SYSTEM_ARCHITECTURE.md)
+- [📁 Monorepo Structure](./docs/architecture/MONOREPO_STRUCTURE.md)
+- [🤖 Claude Code Guide](./.claude/claude.md)
+
+## 💻 Development
+
+### Running Individual Apps
+
+```bash
+# Frontend only
+npm run dev:web
+
+# Backend only
+npm run dev:api
+
+# Both together
+npm run dev
+```
+
+### Generate Leads (CLI)
+
+```bash
+# Generate leads with cold outreach emails
+npm run generate:cold
+
+# Generate follow-up emails
+npm run generate:followup
+
+# Generate value-add emails
+npm run generate:value
+```
+
+### Available Scripts
+
+```bash
+npm run dev              # Run both frontend and backend
+npm run dev:web          # Run frontend only
+npm run dev:api          # Run backend only
+npm run build            # Build all workspaces
+npm run build:web        # Build frontend for production
+npm run generate         # Generate leads (default: cold outreach)
+npm run clean            # Remove all node_modules
+npm run clean:builds     # Remove all build outputs
+```
+
+## 🏗️ Architecture
+
+### Frontend (`apps/web`)
+- **Framework**: React 18
+- **Build Tool**: Vite
+- **Styling**: TailwindCSS
+- **Features**: Lead search, email preview, configuration management
+
+### Backend (`apps/api`)
+- **Runtime**: Node.js
+- **Framework**: Express
+- **APIs**: Exa (search), Claude (email generation)
+- **Storage**: JSON/CSV files
+
+### Shared (`packages/shared`)
+- Type definitions (JSDoc)
+- Shared constants
+- Common utilities
+
+## 🚀 Deployment
+
+### Frontend (Vercel)
+
+The frontend is configured for Vercel deployment:
+
+```bash
+# Vercel will automatically:
+# 1. Detect the monorepo structure
+# 2. Build from apps/web
+# 3. Deploy the static site
+```
+
+Configuration: [`vercel.json`](./vercel.json)
+
+### Backend
+
+The backend can be deployed to:
+- **Vercel Serverless Functions**
+- **AWS Lambda**
+- **Google Cloud Run**
+- **Traditional Node.js hosting**
+
+## 🔐 Environment Variables
+
+Required environment variables (create `.env` in root):
+
+```env
+# Anthropic Claude API
+ANTHROPIC_API_KEY=your_anthropic_api_key
+
+# Exa API
+EXA_API_KEY=your_exa_api_key
+
+# Optional: Server configuration
+PORT=3001
+HOST=localhost
+```
+
+See [`.env.example`](./docs/guides/.env.example) for a complete template.
+
+## 🛠️ Technology Stack
+
+### Frontend
+- React 18
+- Vite
+- TailwindCSS
+- Modern ES6+
+
+### Backend
+- Node.js 18+
+- Express
+- ES Modules
+- Claude AI SDK
+- Exa JavaScript SDK
+
+### Development
+- npm workspaces
+- Concurrently (parallel scripts)
+- Git for version control
+
+## 📦 Monorepo Structure
+
+This project uses **npm workspaces** for monorepo management:
+
+- **Benefits**:
+  - Shared dependencies
+  - Easy cross-package imports
+  - Consistent versioning
+  - Simplified development
+
+- **Workspaces**:
+  - `apps/*` - Applications
+  - `packages/*` - Shared packages
+
+Learn more: [Monorepo Structure Guide](./docs/architecture/MONOREPO_STRUCTURE.md)
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our guidelines:
+
+1. Read the [Claude Code Guide](./.claude/claude.md) for codebase organization
+2. Follow the existing code style and structure
+3. Document your changes
+4. Test thoroughly before submitting
+
+### Development Workflow
+
+```bash
+# 1. Create a feature branch
+git checkout -b feature/your-feature
+
+# 2. Make your changes
+# - Follow the monorepo structure
+# - Add documentation
+# - Update relevant guides
+
+# 3. Test your changes
+npm run dev
+
+# 4. Commit with descriptive message
+git commit -m "Add feature: description"
+
+# 5. Push and create PR
+git push origin feature/your-feature
+```
+
+## 📖 Learn More
+
+### Understanding the Codebase
+1. Start with this README
+2. Review [System Architecture](./docs/architecture/SYSTEM_ARCHITECTURE.md)
+3. Explore [Monorepo Structure](./docs/architecture/MONOREPO_STRUCTURE.md)
+4. Read [Claude Code Guide](./.claude/claude.md) for development guidelines
+
+### Key Concepts
+- **Monorepo**: Multiple related packages in one repository
+- **Workspaces**: npm feature for managing monorepos
+- **AI Integration**: Using Claude and Exa APIs for intelligent lead generation
+- **Full-Stack**: React frontend + Node.js backend
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+**Problem**: `npm install` fails
+- **Solution**: Ensure Node.js 18+ and npm 9+ are installed
+
+**Problem**: API requests fail
+- **Solution**: Check `.env` file has valid API keys
+
+**Problem**: Frontend can't connect to backend
+- **Solution**: Ensure backend is running on port 3001
+
+**Problem**: Build fails on Vercel
+- **Solution**: Check `vercel.json` configuration
+
+More help: [Guides Documentation](./docs/guides/)
+
+## 📄 License
+
+MIT License - see [LICENSE](./LICENSE) file for details
+
+## 👤 Author
+
+**Darian Ghassemi**
+- GitHub: [@DarianGhassemi](https://github.com/DarianGhassemi)
+
+## 🙏 Acknowledgments
+
+- [Anthropic](https://anthropic.com/) - Claude AI
+- [Exa](https://exa.ai/) - Web search API
+- [Vercel](https://vercel.com/) - Deployment platform
 
 ---
 
-**Built with:** Exa Websets API + Claude AI + Node.js
-**Setup Time:** 5 minutes
-**Time to First Results:** 2-3 minutes
+**Built with ❤️ using AI assistance from Claude Code**
 
-**Ready? Start with [search-config.json](search-config.json) → Pick a profile → `npm start`** 🚀
+For detailed documentation, see [`docs/README.md`](./docs/README.md)
