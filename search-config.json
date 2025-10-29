@@ -1,0 +1,204 @@
+{
+  "activeProfile": "default",
+  "profiles": {
+    "default": {
+      "name": "AI Engineers & CTOs (Voice/Speech Focus)",
+      "description": "Targets AI engineers and technical decision makers working on voice and speech-to-text applications",
+      "leadCount": 5,
+      "search": {
+        "query": "AI engineers, CTOs, and technical decision makers focused on speech-to-text, voice AI, and conversational AI applications. They build voice agents, meeting transcription tools, phone support automation, and sales call analysis tools.",
+        "criteria": [
+          "currently employed as an ai engineer, cto, vp of engineering, or technical decision maker",
+          "professional focus on speech-to-text, voice ai, conversational ai, or audio processing",
+          "builds or maintains products involving: ai voice agents, meeting transcription, phone support automation, or voice-enabled applications",
+          "works at a company with 10-1000 employees (not enterprise, not solo)",
+          "likely in the market for speech-to-text apis or looking to improve their current solution",
+          "active in the ai/developer community (github, twitter, linkedin, blog posts)"
+        ],
+        "enrichments": [
+          "linkedin",
+          "email",
+          "twitter",
+          "company",
+          "github",
+          "personal_website"
+        ]
+      }
+    },
+
+    "meeting-tools": {
+      "name": "Meeting & Collaboration Tool Builders",
+      "description": "Teams building meeting assistants, note-taking tools, and collaboration platforms",
+      "leadCount": 50,
+      "search": {
+        "query": "Product managers, engineers, and founders building meeting assistants, note-taking tools, video conferencing platforms, and collaboration software that needs transcription.",
+        "criteria": [
+          "works on meeting assistant, note-taking app, or collaboration platform",
+          "role: product manager, engineer, cto, or founder",
+          "company builds tools for: zoom meetings, google meet, microsoft teams, or general video conferencing",
+          "needs features like: automatic transcription, meeting summaries, action item extraction, or searchable meeting history",
+          "company size: 5-500 employees",
+          "actively shipping product updates and hiring engineers"
+        ],
+        "enrichments": [
+          "linkedin",
+          "email",
+          "twitter",
+          "company",
+          "github",
+          "personal_website"
+        ]
+      }
+    },
+
+    "customer-support": {
+      "name": "Customer Support AI Builders",
+      "description": "Companies building AI phone support, chatbots, and customer service automation",
+      "leadCount": 50,
+      "search": {
+        "query": "Engineers and product leaders building AI-powered customer support, phone support automation, call center AI, and conversational support bots.",
+        "criteria": [
+          "builds ai customer support, phone support automation, or call center ai",
+          "role: ai engineer, ml engineer, product manager, or cto",
+          "focus on voice-based support, phone automation, or conversational ai",
+          "needs: real-time transcription, sentiment analysis, call analytics, or voice bot capabilities",
+          "company type: saas platform, customer support software, or ai automation",
+          "company size: 10-1000 employees"
+        ],
+        "enrichments": [
+          "linkedin",
+          "email",
+          "twitter",
+          "company",
+          "github",
+          "personal_website"
+        ]
+      }
+    },
+
+    "sales-coaching": {
+      "name": "Sales Intelligence & Coaching Tools",
+      "description": "Sales enablement platforms that analyze calls and provide coaching",
+      "leadCount": 50,
+      "search": {
+        "query": "Product and engineering leaders building sales intelligence, call recording, conversation analytics, and sales coaching platforms.",
+        "criteria": [
+          "builds sales intelligence, conversation analytics, or sales coaching tools",
+          "role: head of product, vp engineering, cto, or founder",
+          "product features: call recording, sales call analysis, coaching insights, deal intelligence",
+          "serves: sales teams, revenue operations, or sales enablement",
+          "needs: accurate transcription, speaker diarization, keyword spotting, sentiment analysis",
+          "company stage: series a to growth stage (10-500 employees)"
+        ],
+        "enrichments": [
+          "linkedin",
+          "email",
+          "twitter",
+          "company",
+          "github",
+          "personal_website"
+        ]
+      }
+    },
+
+    "healthcare-tech": {
+      "name": "Healthcare & Medical Documentation",
+      "description": "Digital health companies building clinical documentation and medical scribe tools",
+      "leadCount": 50,
+      "search": {
+        "query": "Health tech engineers and product leaders building medical scribe software, clinical documentation tools, and healthcare voice assistants.",
+        "criteria": [
+          "works in digital health, health tech, or medical software",
+          "builds: medical scribe, clinical documentation, ehr integration, or healthcare voice assistant",
+          "role: healthcare ai engineer, product manager, cto, or medical informatics specialist",
+          "needs: hipaa-compliant transcription, medical terminology accuracy, ehr integration",
+          "company focus: clinical workflow automation or physician documentation",
+          "company size: 10-500 employees"
+        ],
+        "enrichments": [
+          "linkedin",
+          "email",
+          "twitter",
+          "company",
+          "github",
+          "personal_website"
+        ]
+      }
+    },
+
+    "media-podcasting": {
+      "name": "Media, Podcasting & Content Platforms",
+      "description": "Podcast platforms, video hosting, and content creation tools needing transcription",
+      "leadCount": 50,
+      "search": {
+        "query": "Engineering and product leaders at podcast platforms, video hosting services, and content creation tools that need transcription and subtitling.",
+        "criteria": [
+          "works at podcast platform, video hosting service, or content creation tool",
+          "role: engineer, product manager, or head of engineering",
+          "product needs: transcription for podcasts, video subtitles, content search, or accessibility",
+          "serves: content creators, podcasters, video producers, or media companies",
+          "features needed: multi-language support, timestamp accuracy, subtitle generation",
+          "company type: media tech, creator tools, or content platform"
+        ],
+        "enrichments": [
+          "linkedin",
+          "email",
+          "twitter",
+          "company",
+          "github",
+          "personal_website"
+        ]
+      }
+    },
+
+    "legal-compliance": {
+      "name": "Legal Tech & Compliance Recording",
+      "description": "Legal tech companies needing deposition transcription and compliance recording",
+      "leadCount": 50,
+      "search": {
+        "query": "Legal tech engineers and product managers building deposition tools, compliance recording, legal transcription, and contract analysis software.",
+        "criteria": [
+          "works in legal tech, compliance software, or litigation support",
+          "builds: deposition recording, legal transcription, compliance recording, or contract analysis",
+          "role: legal tech engineer, product manager, or cto",
+          "needs: high accuracy transcription, timestamp precision, speaker identification",
+          "serves: law firms, legal departments, or compliance teams",
+          "company focus: legal workflow automation or litigation technology"
+        ],
+        "enrichments": [
+          "linkedin",
+          "email",
+          "twitter",
+          "company",
+          "github",
+          "personal_website"
+        ]
+      }
+    },
+
+    "education-tech": {
+      "name": "Education & E-Learning Platforms",
+      "description": "EdTech companies building lecture transcription, learning management, and accessibility tools",
+      "leadCount": 50,
+      "search": {
+        "query": "EdTech product and engineering leaders building lecture transcription, learning management systems, educational video platforms, and accessibility tools for students.",
+        "criteria": [
+          "works in education technology, e-learning, or learning management systems",
+          "builds: lecture transcription, educational video platform, or student accessibility tools",
+          "role: edtech engineer, product manager, or head of product",
+          "needs: lecture captioning, searchable video content, multi-language support for students",
+          "serves: universities, k-12 schools, online learning platforms, or corporate training",
+          "company type: edtech startup or learning platform"
+        ],
+        "enrichments": [
+          "linkedin",
+          "email",
+          "twitter",
+          "company",
+          "github",
+          "personal_website"
+        ]
+      }
+    }
+  }
+}
